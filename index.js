@@ -1,6 +1,7 @@
 const express = require("express");
 const ytdl = require("ytdl-core");
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -25,4 +26,6 @@ app.get("/download",function(request,response){
 	}).pipe(response);
 });
 
-app.listen(5000);
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
